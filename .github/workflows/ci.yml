@@ -11,15 +11,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Clona la repository
+      - name: Checkout repository
         uses: actions/checkout@v5
 
-      - name: Installa Java
-        uses: actions/setup-java@v4
+      - name: Set up JDK
+        uses: actions/setup-java@v5
         with:
-          distribution: 'temurin'
-          java-version: '17'
+          distribution: temurin
+          java-version: '21'
           cache: maven
 
-      - name: Build con Maven
+      - name: Build with Maven
         run: mvn -B clean verify
